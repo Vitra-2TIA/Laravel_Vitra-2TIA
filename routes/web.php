@@ -5,6 +5,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PelangganController;
 use App\Http\Controllers\QuestionController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -19,14 +20,4 @@ Route::post('question/store', [QuestionController::class, 'store'])
 Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
 Route::resource('pelanggan', PelangganController::class);
-
-Route::get('/', [BiodataController::class, 'index'])->name('cv.index');
-
-Route::get('/', [BiodataController::class, 'index']);
-Route::get('/biodata', [BiodataController::class, 'index'])->name('biodata.index');
-
-Route::post('/biodata', [BiodataController::class, 'storeBiodata'])->name('biodata.store');
-Route::put('/biodata/{id}', [BiodataController::class, 'updateBiodata'])->name('biodata.update');
-
-Route::post('/pengalaman', [BiodataController::class, 'storePengalaman'])->name('pengalaman.store');
-Route::delete('/pengalaman/{id}', [BiodataController::class, 'destroyPengalaman'])->name('pengalaman.destroy');
+Route::resource('user', UserController::class);
