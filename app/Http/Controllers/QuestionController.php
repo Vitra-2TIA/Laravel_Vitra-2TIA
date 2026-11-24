@@ -1,8 +1,11 @@
 <?php
 
+
 namespace App\Http\Controllers;
 
+
 use Illuminate\Http\Request;
+
 
 class QuestionController extends Controller
 {
@@ -14,6 +17,7 @@ class QuestionController extends Controller
         //
     }
 
+
     /**
      * Show the form for creating a new resource.
      */
@@ -22,13 +26,23 @@ class QuestionController extends Controller
         //
     }
 
+
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
     {
-        dd($request->all());
+
+
+        $data['nama']      = $request->nama;
+        $data['email']     = $request->email;
+        $data['pertanyaan'] = $request->pertanyaan;
+
+        return view('home-question-respon', $data);
+
+
     }
+
 
     /**
      * Display the specified resource.
@@ -38,6 +52,7 @@ class QuestionController extends Controller
         //
     }
 
+
     /**
      * Show the form for editing the specified resource.
      */
@@ -46,6 +61,7 @@ class QuestionController extends Controller
         //
     }
 
+
     /**
      * Update the specified resource in storage.
      */
@@ -53,6 +69,7 @@ class QuestionController extends Controller
     {
         //
     }
+
 
     /**
      * Remove the specified resource from storage.
